@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoYouKnowME</title>
+</head>
+<body>
+    var readlineSync = require('readline-sync');
+var userName = readlineSync.question("What is Your name? \n");
+console.log(" Welcome to Do You Know Jatin Mr/Ms " + userName);
+var score =0;
+
+function play(question,answer)
+{
+  var userAns = readlineSync.question(question);
+  if(answer.toUpperCase()===userAns.toUpperCase())
+  {
+    console.log("You are correct!");
+    score++;
+    console.log("Current Score = " ,score);
+    console.log("--------------");
+  }
+  else
+  {
+    console.log("You are wrong!");
+    score--;
+    console.log("Current Score = " ,score);
+    console.log("--------------");
+  }
+}
+
+var questions = [
+{
+  question:"Where do I live? ",
+  answer : "Bangalore",
+},
+{
+  question : "Which phone do I use? ",
+  answer : "iPhone X",
+},
+{
+  question : "What is my brother's first name? ",
+  answer : "Bharath",
+},
+{
+  question : "What is my age? ",
+  answer : "19",
+},
+{
+  question : "Which month was I born in? ",
+  answer : "April",
+}
+];
+
+for(var i=0;i<questions.length;i++)
+{
+  play(questions[i].question,questions[i].answer);
+}
+
+console.log("Yay, You scored " ,score);
+</body>
+</html>
